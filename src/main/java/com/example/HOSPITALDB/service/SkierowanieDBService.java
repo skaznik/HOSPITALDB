@@ -23,7 +23,7 @@ public class SkierowanieDBService implements SkierowanieService{
     }
 
     @Override
-    public SkierowanieDoLekarza getSkierowanie(Integer id) throws NotFoundException {
+    public SkierowanieDoLekarzaDTO getSkierowanie(Integer id) throws NotFoundException {
         return dao.findById(id)
                 .orElseThrow(() ->new TestController.NotFoundException());
     }

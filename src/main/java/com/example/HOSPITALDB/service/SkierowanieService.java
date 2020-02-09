@@ -9,10 +9,10 @@ import java.util.Collection;
 public interface SkierowanieService {
 
     Collection<SkierowanieDoLekarzaDTO> listSkierowanie();
-    SkierowanieDoLekarza getSkierowanie(Integer id) throws NotFoundException;
+    SkierowanieDoLekarzaDTO getSkierowanie(Integer id) throws NotFoundException;
     void deleteSkierowanie(Integer id) throws NotFoundException;
-    SkierowanieDoLekarzaDTO createSkierowanie(SkierowanieDoLekarza skierowanie);
-    SkierowanieDoLekarzaDTO updateSkierowanie(SkierowanieDoLekarza skierowanie) throws NotFoundException;
+    SkierowanieDoLekarzaDTO createSkierowanie(SkierowanieDoLekarzaDTO skierowanie);
+    SkierowanieDoLekarzaDTO updateSkierowanie(SkierowanieDoLekarzaDTO skierowanie) throws NotFoundException;
 
 
 
