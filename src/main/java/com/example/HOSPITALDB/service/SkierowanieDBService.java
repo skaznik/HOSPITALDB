@@ -2,11 +2,12 @@ package com.example.HOSPITALDB.service;
 
 import com.example.HOSPITALDB.dao.SkierowanieDoLakarzaDao;
 import com.example.HOSPITALDB.model.SkierowanieDoLekarza;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.List;
-
+@Primary
 @Service
 public class SkierowanieDBService implements SkierowanieService{
     SkierowanieDoLakarzaDao dao;
@@ -16,7 +17,7 @@ public class SkierowanieDBService implements SkierowanieService{
 
     @Override
     public Collection<SkierowanieDoLekarza> listSkierowanie() {
-        return null;
+        return dao.findAll();
     }
 
     @Override

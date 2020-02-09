@@ -15,4 +15,6 @@ public interface SkierowanieDoLakarzaDao extends CrudRepository<SkierowanieDoLek
 
     @Override
     List<SkierowanieDoLekarza> findAllById(Iterable<Integer> integers);
+
+
 }
