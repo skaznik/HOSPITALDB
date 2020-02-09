@@ -1,9 +1,13 @@
 package com.example.HOSPITAL.model;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotEmpty;
 import java.util.Date;
+@Entity
+@Table(name = "Skierowania")
 public class SkierowanieDoLekarza {
     int id;
     @NotEmpty
