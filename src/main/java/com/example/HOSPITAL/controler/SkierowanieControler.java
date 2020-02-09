@@ -39,7 +39,7 @@ public class SkierowanieControler {
     }
 
     @PostMapping("/dodaj")
-    public String stworzSkierowanie(@Valid @ModelAttribute SkierowanieDoLekarza skierowanieDoLekarza, Model model, BindingResult bindingResult) {
+    public String stworzSkierowanie(@Valid @ModelAttribute SkierowanieDoLekarza skierowanieDoLekarza, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("skierowanie", skierowanieDoLekarza);
             return "dodaj-skierowanie";
@@ -55,7 +55,7 @@ public class SkierowanieControler {
     }
 
     @PostMapping("/modyfikuj")
-    public String updateSkierowanie(@Valid @ModelAttribute SkierowanieDoLekarza skierowanieDoLekarza, Model model, BindingResult bindingResult) {
+    public String updateSkierowanie(@Valid @ModelAttribute SkierowanieDoLekarza skierowanieDoLekarza, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("skierowanie", skierowanieDoLekarza);
             return "modyfikuj-skierowanie";

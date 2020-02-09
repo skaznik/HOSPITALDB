@@ -22,7 +22,7 @@
     <input type = "text" th:field="*{pacjent}" id ="pacjent" />
     <label FOR="termin">Termin</label>
     <p alert alert-error th:errors="*{termin}">MUSISZ BYĆ TERMIN</p>
-    <input type="datetime-local" th:field="*{termin}" id ="termin" />
+    <input type="date" th:field="*{termin}" id ="termin" />
     <br>
     <input class="btn" type="submit">
     <div>

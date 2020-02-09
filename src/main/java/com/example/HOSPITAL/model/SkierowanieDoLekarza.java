@@ -1,12 +1,17 @@
 package com.example.HOSPITAL.model;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.FutureOrPresent;
+import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 public class SkierowanieDoLekarza {
     int id;
+    @NotEmpty
     String lekarz;
+    @NotEmpty
     String pacjent;
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'hh:mm")
+    @FutureOrPresent
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     Date termin;
 
     public SkierowanieDoLekarza() {
