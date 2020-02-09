@@ -35,6 +35,7 @@ public class SkierowanieDBService implements SkierowanieService{
 
     @Override
     public SkierowanieDoLekarza createSkierowanie(SkierowanieDoLekarza skierowanie) {
+        skierowanie.setId(null);
         return dao.save(skierowanie);
     }
 

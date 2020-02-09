@@ -9,8 +9,8 @@ import java.util.Date;
 @Table(name = "Skierowania")
 public class SkierowanieDoLekarza {
     @Id
-    @GeneratedValue
-    int id;
+            @GeneratedValue(strategy = GenerationType.AUTO)
+    Integer id;
     @NotEmpty
     @Column(nullable = false)
     String lekarz;
@@ -26,18 +26,18 @@ public class SkierowanieDoLekarza {
 
     }
 
-    public SkierowanieDoLekarza(int id, String lekarz, String pacjent, Date termin) {
+    public SkierowanieDoLekarza(Integer id, String lekarz, String pacjent, Date termin) {
         this.id = id;
         this.lekarz = lekarz;
         this.pacjent = pacjent;
         this.termin = termin;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
