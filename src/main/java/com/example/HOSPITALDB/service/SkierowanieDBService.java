@@ -13,18 +13,23 @@ import java.util.Collection;
 @Service
 public class SkierowanieDBService implements SkierowanieService{
     SkierowanieDoLakarzaDao dao;
-    public SkierowanieDBService(SkierowanieDoLakarzaDao dao) {
+    SkierowanieMapper mapper;
+
+    public SkierowanieDBService(SkierowanieDoLakarzaDao dao,
+                                SkierowanieMapper mapper) {
         this.dao = dao;
+        this.mapper = mapper;
     }
 
     @Override
     public Collection<SkierowanieDoLekarzaDTO> listSkierowanie() {
-        return dao.findAll();
+        return mapper.toDTO(dao.findAll());
     }
 
     @Override
     public SkierowanieDoLekarzaDTO getSkierowanie(Integer id) throws NotFoundException {
         return dao.findById(id)
+                .map(s -> mapper.toDTO(s))
                 .orElseThrow(() ->new TestController.NotFoundException());
     }
 
