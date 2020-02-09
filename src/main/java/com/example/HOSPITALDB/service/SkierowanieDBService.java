@@ -41,15 +41,16 @@ public class SkierowanieDBService implements SkierowanieService{
     @Override
     public SkierowanieDoLekarzaDTO createSkierowanie(SkierowanieDoLekarzaDTO skierowanie) {
         skierowanie.setId(null);
-        return dao.save(skierowanie);
+        return mapper.toDTO(
+                dao.save(mapper.toDB(skierowanie)));
     }
 
     @Override
     public SkierowanieDoLekarzaDTO updateSkierowanie(SkierowanieDoLekarzaDTO skierowanie) throws NotFoundException {
-        SkierowanieDoLekarza skierowanieDoLekarza = getSkierowanie(skierowanie.getId());
+        SkierowanieDoLekarza skierowanieDoLekarza = dao.findById(skierowanie.getId()).get();
         skierowanieDoLekarza.setLekarz(skierowanie.getLekarz());
         skierowanieDoLekarza.setPacjent(skierowanie.getPacjent());
         skierowanieDoLekarza.setTermin(skierowanie.getTermin());
-        return dao.save(skierowanieDoLekarza);
+        return mapper.toDTO(dao.save(skierowanieDoLekarza));
     }
 }
