@@ -55,3 +55,7 @@
 //        return existing;
 //    }
 //}
+
+
+
+// żeby zachaszować większość - klikamy ctrl+slash
