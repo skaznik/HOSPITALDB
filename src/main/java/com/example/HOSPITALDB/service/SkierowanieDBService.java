@@ -1,5 +1,6 @@
 package com.example.HOSPITALDB.service;
 
+import TestController.NotFoundException;
 import com.example.HOSPITALDB.dao.SkierowanieDoLakarzaDao;
 import com.example.HOSPITALDB.model.SkierowanieDoLekarza;
 import org.springframework.context.annotation.Primary;
@@ -21,13 +22,14 @@ public class SkierowanieDBService implements SkierowanieService{
     }
 
     @Override
-    public SkierowanieDoLekarza getSkierowanie(Integer id) {
-        return null;
+    public SkierowanieDoLekarza getSkierowanie(Integer id) throws NotFoundException {
+        return dao.findById(id)
+                .orElseThrow(() ->new TestController.NotFoundException());
     }
 
     @Override
     public void deleteSkierowanie(Integer id) {
-
+    return;
     }
 
     @Override
@@ -37,6 +39,6 @@ public class SkierowanieDBService implements SkierowanieService{
 
     @Override
     public SkierowanieDoLekarza updateSkierowanie(SkierowanieDoLekarza skierowanie) {
-        return null;
+        return dao.
     }
 }
