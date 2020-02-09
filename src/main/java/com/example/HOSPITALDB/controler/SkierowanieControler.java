@@ -1,7 +1,7 @@
-package com.example.HOSPITAL.controler;
+package com.example.HOSPITALDB.controler;
 
-import com.example.HOSPITAL.model.SkierowanieDoLekarza;
-import com.example.HOSPITAL.service.SkierowanieService;
+import com.example.HOSPITALDB.model.SkierowanieDoLekarza;
+import com.example.HOSPITALDB.service.SkierowanieService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;

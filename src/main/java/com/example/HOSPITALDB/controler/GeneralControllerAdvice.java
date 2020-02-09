@@ -1,8 +1,7 @@
-package com.example.HOSPITAL.controler;
+package com.example.HOSPITALDB.controler;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestController;
 
 @ControllerAdvice
 public class GeneralControllerAdvice {

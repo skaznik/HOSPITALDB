@@ -1,8 +1,6 @@
-package com.example.HOSPITAL.service;
+package com.example.HOSPITALDB.service;
 
-import TestController.NotFoundException;
-import com.example.HOSPITAL.model.SkierowanieDoLekarza;
-import com.example.HOSPITAL.service.SkierowanieService;
+import com.example.HOSPITALDB.model.SkierowanieDoLekarza;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 

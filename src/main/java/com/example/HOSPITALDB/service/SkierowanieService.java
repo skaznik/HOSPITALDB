@@ -1,9 +1,8 @@
-package com.example.HOSPITAL.service;
+package com.example.HOSPITALDB.service;
 
-import com.example.HOSPITAL.model.SkierowanieDoLekarza;
+import com.example.HOSPITALDB.model.SkierowanieDoLekarza;
 
 import java.util.Collection;
-import java.util.List;
 
 public interface SkierowanieService {
 

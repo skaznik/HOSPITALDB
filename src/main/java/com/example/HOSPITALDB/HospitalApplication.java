@@ -1,4 +1,4 @@
-package com.example.HOSPITAL;
+package com.example.HOSPITALDB;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

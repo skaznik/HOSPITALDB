@@ -1,4 +1,4 @@
-package com.example.HOSPITAL.model;
+package com.example.HOSPITALDB.model;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
