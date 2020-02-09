@@ -1,7 +1,7 @@
 package com.example.HOSPITALDB.controler;
 
 import TestController.NotFoundException;
-import com.example.HOSPITALDB.model.SkierowanieDoLekarza;
+import com.example.HOSPITALDB.dto.SkierowanieDoLekarzaDTO;
 import com.example.HOSPITALDB.service.SkierowanieService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,19 +28,19 @@ public class SkierowanieControler {
 
     @GetMapping("/{id}")
     public String getSkierowanie(@PathVariable Integer id, Model model) throws NotFoundException {
-        SkierowanieDoLekarza skierowanieDoLekarza = service.getSkierowanie(id);
+        SkierowanieDoLekarzaDTO skierowanieDoLekarza = service.getSkierowanie(id);
         model.addAttribute("skierowanie", skierowanieDoLekarza);
         return "get-skierowanie";
     }
 
     @GetMapping("/dodaj")
     public String dodajSkierowanie(Model model) {
-        model.addAttribute("skierowanie", new SkierowanieDoLekarza());
+        model.addAttribute("skierowanie", new SkierowanieDoLekarzaDTO());
         return "dodaj-skierowanie";
     }
 
     @PostMapping("/dodaj")
-    public String stworzSkierowanie(@Valid @ModelAttribute SkierowanieDoLekarza skierowanieDoLekarza, BindingResult bindingResult, Model model) {
+    public String stworzSkierowanie(@Valid @ModelAttribute SkierowanieDoLekarzaDTO skierowanieDoLekarza, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("skierowanie", skierowanieDoLekarza);
             return "dodaj-skierowanie";
@@ -56,7 +56,7 @@ public class SkierowanieControler {
     }
 
     @PostMapping("/modyfikuj")
-    public String updateSkierowanie(@Valid @ModelAttribute SkierowanieDoLekarza skierowanieDoLekarza, BindingResult bindingResult, Model model) throws NotFoundException {
+    public String updateSkierowanie(@Valid @ModelAttribute SkierowanieDoLekarzaDTO skierowanieDoLekarza, BindingResult bindingResult, Model model) throws NotFoundException {
         if (bindingResult.hasErrors()) {
             model.addAttribute("skierowanie", skierowanieDoLekarza);
             return "modyfikuj-skierowanie";
