@@ -28,17 +28,22 @@ public class SkierowanieDBService implements SkierowanieService{
     }
 
     @Override
-    public void deleteSkierowanie(Integer id) {
-    return;
+    public void deleteSkierowanie(Integer id) throws NotFoundException {
+    SkierowanieDoLekarza skierowanieDoLekarza = getSkierowanie(id);
+        dao.delete(skierowanieDoLekarza);
     }
 
     @Override
     public SkierowanieDoLekarza createSkierowanie(SkierowanieDoLekarza skierowanie) {
-        return null;
+        return dao.save(skierowanie);
     }
 
     @Override
-    public SkierowanieDoLekarza updateSkierowanie(SkierowanieDoLekarza skierowanie) {
-        return dao.
+    public SkierowanieDoLekarza updateSkierowanie(SkierowanieDoLekarza skierowanie) throws NotFoundException {
+        SkierowanieDoLekarza skierowanieDoLekarza = getSkierowanie(skierowanie.getId());
+        skierowanieDoLekarza.setLekarz(skierowanie.getLekarz());
+        skierowanieDoLekarza.setPacjent(skierowanie.getPacjent());
+        skierowanieDoLekarza.setTermin(skierowanie.getTermin());
+        return dao.save(skierowanieDoLekarza);
     }
 }

@@ -1,5 +1,6 @@
 package com.example.HOSPITALDB.controler;
 
+import TestController.NotFoundException;
 import com.example.HOSPITALDB.model.SkierowanieDoLekarza;
 import com.example.HOSPITALDB.service.SkierowanieService;
 import org.springframework.stereotype.Controller;
@@ -26,7 +27,7 @@ public class SkierowanieControler {
     }
 
     @GetMapping("/{id}")
-    public String getSkierowanie(@PathVariable Integer id, Model model) {
+    public String getSkierowanie(@PathVariable Integer id, Model model) throws NotFoundException {
         SkierowanieDoLekarza skierowanieDoLekarza = service.getSkierowanie(id);
         model.addAttribute("skierowanie", skierowanieDoLekarza);
         return "get-skierowanie";
@@ -49,13 +50,13 @@ public class SkierowanieControler {
     }
 
     @GetMapping("/modyfikuj/{id}")
-    public String modyfikujSkierowanie(@PathVariable Integer id, Model model) {
+    public String modyfikujSkierowanie(@PathVariable Integer id, Model model) throws NotFoundException {
         model.addAttribute("skierowanie", service.getSkierowanie(id));
         return "modyfikuj-skierowanie";
     }
 
     @PostMapping("/modyfikuj")
-    public String updateSkierowanie(@Valid @ModelAttribute SkierowanieDoLekarza skierowanieDoLekarza, BindingResult bindingResult, Model model) {
+    public String updateSkierowanie(@Valid @ModelAttribute SkierowanieDoLekarza skierowanieDoLekarza, BindingResult bindingResult, Model model) throws NotFoundException {
         if (bindingResult.hasErrors()) {
             model.addAttribute("skierowanie", skierowanieDoLekarza);
             return "modyfikuj-skierowanie";
@@ -67,7 +68,7 @@ public class SkierowanieControler {
     }
 
     @GetMapping("/usun/{id}")
-    public String usunSkierowanie(@PathVariable Integer id) {
+    public String usunSkierowanie(@PathVariable Integer id) throws NotFoundException {
         service.deleteSkierowanie((id));
         return "redirect:/list";
     }
