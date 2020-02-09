@@ -1,32 +1,24 @@
-package com.example.HOSPITALDB.model;
+package com.example.HOSPITALDB.dto;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotEmpty;
 import java.util.Date;
-@Entity
-@Table(name = "Skierowania")
-public class SkierowanieDoLekarza {
-    @Id
-            @GeneratedValue(strategy = GenerationType.AUTO)
+
+public class SkierowanieDoLekarzaDTO {
     Integer id;
-    @Column(nullable = false)
+    @NotEmpty
     String lekarz;
-    @Column(nullable = false)
+    @NotEmpty
     String pacjent;
-     Date termin;
-
-    public SkierowanieDoLekarza() {
-
-    }
-
-    public SkierowanieDoLekarza(Integer id, String lekarz, String pacjent, Date termin) {
-        this.id = id;
-        this.lekarz = lekarz;
-        this.pacjent = pacjent;
-        this.termin = termin;
-    }
+    @FutureOrPresent
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    Date termin;
 
     public Integer getId() {
         return id;
@@ -59,5 +51,4 @@ public class SkierowanieDoLekarza {
     public void setTermin(Date termin) {
         this.termin = termin;
     }
-
 }
