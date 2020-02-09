@@ -9,12 +9,10 @@
     <title></title>
 </head>
 <body>
-
 <div th:text="${skierownie.id}"></div>
 <div th:text="${skierowanie.lekarz}"></div>
 <div th:text="${skierowanie.pacjent}"></div>
 <div th:text="${skierowanie.termin}"></div>
-
 <div><a class="btn" href="/skierowanie/list">Back</a></div>
 <div><a class="btn"  th:attr = "href= '/skierowanie/usun/'+ ${skierowanie.id)">USUN</a></div>
 <div><a class="btn"  th:attr = "href= '/skierowanie/modyfikuj/'+ ${skierowanie.id)">MODYFIKUJ</a></div>

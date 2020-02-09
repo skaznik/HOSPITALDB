@@ -2,6 +2,7 @@ package com.example.HOSPITALDB.dao;
 
 
 import com.example.HOSPITALDB.model.SkierowanieDoLekarza;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -15,6 +16,5 @@ public interface SkierowanieDoLakarzaDao extends CrudRepository<SkierowanieDoLek
 
     @Override
     List<SkierowanieDoLekarza> findAllById(Iterable<Integer> integers);
-
 
 }
