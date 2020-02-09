@@ -1,21 +1,25 @@
 package com.example.HOSPITAL.model;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 @Entity
 @Table(name = "Skierowania")
 public class SkierowanieDoLekarza {
+    @Id
+    @GeneratedValue
     int id;
     @NotEmpty
+    @Column(nullable = false)
     String lekarz;
     @NotEmpty
+    @Column(nullable = false)
     String pacjent;
     @FutureOrPresent
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+
     Date termin;
 
     public SkierowanieDoLekarza() {
