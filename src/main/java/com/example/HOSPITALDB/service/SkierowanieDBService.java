@@ -35,8 +35,7 @@ public class SkierowanieDBService implements SkierowanieService{
 
     @Override
     public void deleteSkierowanie(Integer id) throws NotFoundException {
-    SkierowanieDoLekarza skierowanieDoLekarza = getSkierowanie(id);
-        dao.delete(skierowanieDoLekarza);
+        dao.deleteById(getSkierowanie(id).getId());
     }
 
     @Override
