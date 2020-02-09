@@ -2,12 +2,13 @@ package com.example.HOSPITALDB.service;
 
 import TestController.NotFoundException;
 import com.example.HOSPITALDB.dao.SkierowanieDoLakarzaDao;
+import com.example.HOSPITALDB.dto.SkierowanieDoLekarzaDTO;
 import com.example.HOSPITALDB.model.SkierowanieDoLekarza;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
-import java.util.List;
+
 @Primary
 @Service
 public class SkierowanieDBService implements SkierowanieService{
@@ -17,7 +18,7 @@ public class SkierowanieDBService implements SkierowanieService{
     }
 
     @Override
-    public Collection<SkierowanieDoLekarza> listSkierowanie() {
+    public Collection<SkierowanieDoLekarzaDTO> listSkierowanie() {
         return dao.findAll();
     }
 
@@ -34,13 +35,13 @@ public class SkierowanieDBService implements SkierowanieService{
     }
 
     @Override
-    public SkierowanieDoLekarza createSkierowanie(SkierowanieDoLekarza skierowanie) {
+    public SkierowanieDoLekarzaDTO createSkierowanie(SkierowanieDoLekarzaDTO skierowanie) {
         skierowanie.setId(null);
         return dao.save(skierowanie);
     }
 
     @Override
-    public SkierowanieDoLekarza updateSkierowanie(SkierowanieDoLekarza skierowanie) throws NotFoundException {
+    public SkierowanieDoLekarzaDTO updateSkierowanie(SkierowanieDoLekarzaDTO skierowanie) throws NotFoundException {
         SkierowanieDoLekarza skierowanieDoLekarza = getSkierowanie(skierowanie.getId());
         skierowanieDoLekarza.setLekarz(skierowanie.getLekarz());
         skierowanieDoLekarza.setPacjent(skierowanie.getPacjent());
